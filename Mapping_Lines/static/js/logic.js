@@ -2,7 +2,7 @@
 console.log("working");
 
 // Create the map object with a center and zoom level.
-let map = L.map('mapid').setView([34.0522, -118.2437], 14);
+let map = L.map('mapid').setView([36.1733, -120.1794], 7);
 
 // We create the tile layer that will be the background of our map.
 let streets = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -10,7 +10,19 @@ attribution: 'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap
     maxZoom: 18,
     accessToken: API_KEY
 });
-
+// Coordinates for each point to be used in the polyline.
+let line = [
+  [37.6213, -122.3790],
+  [44.6365, -123.1059],
+  [30.1975, -97.6664],
+  [43.6777, -79.6248],
+  [40.6413, -73.7781]
+];
+// Create a polyline using the line coordinates and make the line red.
+L.polyline(line, {
+  color: "blue",
+dashArray: '5'
+}).addTo(map);
 // Get data from cities.js
 let cityData = cities;
 
